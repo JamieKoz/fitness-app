@@ -9,7 +9,8 @@
         </router-link>
 
         <router-link to="/about" class="hover:bg-violet-700 text-white pt-3.5 px-5 hover:text-white">About</router-link>
-        <router-link to="/about" class="hover:bg-violet-700 text-white pt-3.5 px-5 hover:text-white">About</router-link>
+        <router-link to="/bmi" class="hover:bg-violet-700 text-white pt-3.5 px-5 hover:text-white">BMI
+            Calculator</router-link>
 
     </div>
 </template>

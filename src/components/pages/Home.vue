@@ -7,7 +7,7 @@
 </template>
 
 <script>
-import HomeHero from './HomeHero.vue'
+import HomeHero from '../HomeHero.vue'
 
 export default {
     components: {
