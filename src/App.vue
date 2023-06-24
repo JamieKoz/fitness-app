@@ -1,13 +1,11 @@
 <template>
-  <div class="container mx-auto bg-gradient-to-r from-violet-600 to-fuchsia-600">
+  <div class="container mx-auto bg-gradient-to-r from-gray-800 to-gray-900 min-h-screen">
     <div class="sticky top-0 z-50">
       <Nav></Nav>
     </div>
-    <div class="">
-      <router-view />
+    <router-view />
 
-    </div>
-    <Footer class=""></Footer>
+    <Footer></Footer>
   </div>
 </template>
 

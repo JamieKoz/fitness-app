@@ -1,5 +1,5 @@
 <template>
-    <div class="py-24 bg-gradient-to-r from-violet-600 to-fuchsia-600 w-full">
+    <div class="py-24 bg-gradient-to-r from-gray-800 to-gray-900">
 
         <div class="container flex justify-center">
             <img src="../assets/DALL·E 2023-06-10 09.51.00 - a minimal logo for a fitness app with a dumbbell.png"

@@ -5,18 +5,18 @@
         <form @submit.prevent="calculate" class="w-full max-w-sm">
             <div class="flex flex-col m-2">
                 <label for="height" class="mb-2">Height m<sup>2</sup></label>
-                <input id="height" type="number" v-model.number="height"
-                    class="p-2 bg-violet-700 text-white rounded placeholder-white pl-2" placeholder="0" />
+                <input id="height" type="number" step="any" v-model.number="height"
+                    class="p-2 bg-gray-700 text-gray-100 rounded placeholder-white pl-2" placeholder="0" />
             </div>
 
             <div class="flex flex-col m-2">
                 <label for="weight" class="mb-2">Weight (kg)</label>
-                <input id="weight" type="number" v-model.number="mass"
-                    class="p-2 bg-violet-700 text-white rounded placeholder-white pl-2" placeholder="0" />
+                <input id="weight" type="number" step="any" v-model.number="mass"
+                    class="p-2 bg-gray-700 text-gray-100 rounded placeholder-white pl-2" placeholder="0" />
             </div>
 
             <div class="flex justify-center">
-                <button type="submit" class="bg-violet-700 w-48">Calculate</button>
+                <button type="submit" class="bg-gray-700 hover:bg-violet-700 w-48">Calculate</button>
             </div>
         </form>
 
@@ -58,17 +58,17 @@ export default {
         bmiColor() {
             switch (this.bmiCategory) {
                 case 'Underweight':
-                    return 'blue';
+                    return 'rgb(30 58 138)';
                 case 'Healthy weight':
-                    return 'green';
+                    return 'rgb(34 197 94)';
                 case 'Overweight but not obese':
-                    return 'yellow';
+                    return 'rgb(253 224 71)';
                 case 'Obese class I':
                     return 'orange';
                 case 'Obese class II':
-                    return 'red';
+                    return 'rgb(159 18 57)';
                 case 'Obese class III':
-                    return 'red';
+                    return 'rgb(76 5 25)';
             }
         },
         bmiGradient() {

@@ -15,6 +15,17 @@ const routes = [
         path: '/bmi',
         name: 'bmi-calculator',
         component: () => import('./components/pages/BMI.vue') // Lazy load component
+    },
+    {
+        path: '/exercises',
+        name: 'exercises',
+        component: () => import('./components/pages/Exercises/Index.vue') // Lazy load component
+    },
+    {
+        path: '/exercises/:id',
+        name: 'exerciseShow',
+        component: () => import('./components/pages/Exercises/Show.vue'),
+        props: true,
     }
     // Add other routes as needed
 ]
