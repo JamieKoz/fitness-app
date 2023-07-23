@@ -1,6 +1,6 @@
 <template>
     <div class="flex justify-start m-4">
-        <div class="bg-gray-900 text-gray-100 rounded p-4 max-w-[30rem] ">
+        <div class="bg-gray-900 text-gray-100 rounded p-4 max-w-[30rem]">
             <div class="mt-4">
                 Type
                 <div class="flex flex-col mt-2">
@@ -42,7 +42,15 @@
             <input v-model="searchTerm" @input="search" class="p-2 rounded placeholder-white w-full"
                 placeholder="Search exercises..." />
 
-            <ul v-if="exercises" class="mt-4">
+            <div v-if="loading" class="flex justify-center">
+                <div class="inline-block h-8 w-8 animate-spin rounded-full border-4 border-solid border-current border-r-transparent align-[-0.125em] motion-reduce:animate-[spin_1.5s_linear_infinite] mt-6"
+                    role="status">
+                    <span
+                        class="!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]">Loading...</span>
+                </div>
+            </div>
+
+            <ul v-if="exercises && !loading" class="mt-4">
                 <li v-for="exercise in exercises" :key="exercise.id">
                     <router-link :to="{ name: 'exerciseShow', params: { id: exercise.id } }">
                         <div class="flex items-center bg-gray-700 hover:bg-violet-700 text-gray-100 p-4 rounded mb-2">
@@ -62,7 +70,9 @@
                 <div class="flex justify-center mt-2">
                     <button v-if="nextPageUrl" @click="loadMore" :disabled="loading"
                         class="bg-gray-700 hover:bg-violet-700">Load
-                        more</button>
+                        more
+                    </button>
+
                 </div>
             </ul>
         </div>
@@ -126,8 +136,8 @@ export default {
                 const types = this.selectedTypes.join(',');
                 const bodyParts = this.selectedBodyParts.join(',');
                 const equipmentTypes = this.selectedEquipmentTypes.join(',');
-                const response = await axios.get(`http://127.0.0.1:8000/api/exercises/search?q=${this.searchTerm}&types=${types}&bodyParts=${bodyParts}&equipmentTypes=${equipmentTypes}`)
-                this.exercises = response.data.data
+                const response = await axios.get(`http://127.0.0.1:8000/api/exercises/search?q=${this.searchTerm}&types=${types}&bodyParts=${bodyParts}&equipmentTypes=${equipmentTypes}`);
+                this.exercises = response.data.data;
             } catch (error) {
                 console.error(error)
             }
