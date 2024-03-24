@@ -22,7 +22,7 @@ const routes = [
         component: () => import('./components/pages/Exercises/Index.vue') // Lazy load component
     },
     {
-        path: '/exercises/:id',
+        path: '/exercises/:title',
         name: 'exerciseShow',
         component: () => import('./components/pages/Exercises/Show.vue'),
         props: true,

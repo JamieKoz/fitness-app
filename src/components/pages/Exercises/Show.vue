@@ -37,14 +37,16 @@
 import axios from 'axios'
 
 export default {
-    props: ['id'],
+    props: ['title'],
     data() {
         return {
             exercise: null,
         }
     },
     async created() {
-        const response = await axios.get(`http://127.0.0.1:8000/api/exercises/${this.id}`)
+        const encodedTitle = encodeURIComponent(this.title.replace(/\//g, "--slash--"));
+        const response = await axios.get(`http://127.0.0.1:8000/api/exercises/show/${encodedTitle}`)
+        console.log(response.data)
         this.exercise = response.data
     },
 }

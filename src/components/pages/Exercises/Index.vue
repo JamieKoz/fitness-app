@@ -52,7 +52,7 @@
 
             <ul v-if="exercises && !loading" class="mt-4">
                 <li v-for="exercise in exercises" :key="exercise.id">
-                    <router-link :to="{ name: 'exerciseShow', params: { id: exercise.id } }">
+                    <router-link :to="{ name: 'exerciseShow', params: { title: exercise.title } }">
                         <div class="flex items-center bg-gray-700 hover:bg-violet-700 text-gray-100 p-4 rounded mb-2">
                             <div><img :src="exerciseTypeImages[exercise.type]" alt="" class="w-12 h-12"></div>
                             <div class="flex-grow ml-4">
