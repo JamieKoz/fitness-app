@@ -4,7 +4,7 @@
 
         <form @submit.prevent="calculate" class="w-full max-w-sm">
             <div class="flex flex-col m-2">
-                <label for="height" class="mb-2">Height m<sup>2</sup></label>
+                <label for="height" class="mb-2">Height (m)</label>
                 <input id="height" type="number" step="any" v-model.number="height"
                     class="p-2 bg-gray-700 text-gray-100 rounded placeholder-white pl-2" placeholder="0" />
             </div>

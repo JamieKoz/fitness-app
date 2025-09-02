@@ -1,4 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
+import AddExercise from './components/AddExercise.vue'
 
 const routes = [
     {
@@ -26,8 +27,27 @@ const routes = [
         name: 'exerciseShow',
         component: () => import('./components/pages/Exercises/Show.vue'),
         props: true,
-    }
-    // Add other routes as needed
+    },
+    {
+        path: '/workout',
+        name: 'workout',
+        component: () => import('./components/pages/Workout/Index.vue'),
+        props: true,
+        children: [
+            {
+                path: '/add-exercise/:workoutId',
+                name: 'addExercise',
+                component: () => import('./components/pages/Workout/AddExercise.vue'),
+                props: true,
+            }
+        ]
+    },
+    {
+        path: '/create-workout',
+        name: 'createWorkout', // This should match what you use in <router-link> or programmatic navigation
+        component: () => import('./components/pages/Workout/Create.vue'),
+    },
+
 ]
 
 const router = createRouter({
